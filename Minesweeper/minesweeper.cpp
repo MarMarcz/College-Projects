@@ -1,5 +1,5 @@
 #include <iostream>
-#include "./saper.h"
+#include "./minesweeper.h"
 
 int main()
 {
