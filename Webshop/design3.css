@@ -1,0 +1,126 @@
+.navbar{
+    background:  #9F8170;
+}
+
+body {
+    background: #E3DAC9;
+}
+/*random comment  a:hover a:visited itd
+border-left: 2px solid black
+Do stylizacji cienia horiziontal length Vertical Length blur radious spread radius shadow color opacity;
+zmien kolor inputow
+onfocus="this.placeholder=''"
+onblur="this.placeholder='login'"
+#E3DAC9
+*/
+.form-inline {
+    width: min-content;
+}
+
+ul {
+    width: 100%;
+    text-align: center;
+}
+
+li {
+    width: 100px;
+    margin: auto;
+    text-align: center;
+}
+
+h1 {
+    font-family: "Bookman Old Style";
+    font-size: xxx-large;
+    text-align: center;
+}
+
+.row {
+    margin: auto;
+}
+
+.card {
+    background: #C3B091;
+    text-align: center;
+}
+
+.card-shortdes{
+    margin-left: 50px;
+    margin-right:50px ;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.card-longdes {
+    margin-top: 40px;
+}
+
+.card-shortdes:hover .card-img {
+    opacity: 0.3;
+}
+
+.card-shortdes:hover .add-to-cart, .card:hover .see-more{
+    opacity: 1;
+}
+
+.add-to-cart{
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.see-more {
+    margin: auto;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.card-group {
+    text-align: center;
+}
+
+.container {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-text-longdes {
+    padding: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.card-img-longdes {
+    padding: 30px;
+}
+
+.card-login {
+    margin: auto;
+    margin-top: 40px;
+}
+
+.form-container {
+    width: 100%;
+}
+
+.form-group {
+    padding: 20px;
+}
+
+.opinions {
+    width: 100%;
+    text-align: center;
+    background: #cdae91;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
