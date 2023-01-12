@@ -1,0 +1,39 @@
+<html>
+    <head> 
+        <link th:href="@{/authors-stylesheet.css}" rel="stylesheet">
+        <title>Authors</title>
+    </head>    
+    <body>
+    
+        <div class="topnav">
+            <a  th:href="@{/authors/add}" >Add Author</a>
+            <a class="active" th:href="@{/authors/all}">See Authors</a>
+        </div>
+
+<!--        <div class="alert success" th:if="${status} == 'success'">-->
+<!--            <strong> You successfully submited the item! </strong> -->
+<!--        </div>-->
+
+<!--        <div class="alert" th:if="${status} == 'failed'">-->
+<!--            <strong > You failed to submit the item. </strong> -->
+<!--       </div>-->
+
+        <div class="container">
+           <table>
+              <tr class="head">
+                 <th>Name</th>
+                 <th>Surname</th>
+                 <th> </th>
+              </tr>
+              <tr th:each="author: ${authors}">
+                 <td th:text="${author.name}">name</th>
+                 <td th:text="${author.surname}">surname</td>
+                 <td>
+                    <a role="button" style="color:white; background-color: #263238" class="table-button" th:href="@{/authors/add/(id = ${author.id})}">Update</a>
+                </td>
+              </tr>
+           </table>
+        </div>
+
+   </body>
+</html>
