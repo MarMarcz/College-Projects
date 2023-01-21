@@ -2,7 +2,6 @@ package com.example.projectjaz.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-
 import java.util.List;
 
 @Entity
@@ -17,7 +16,7 @@ public class Author {
     @Column(name = "surname", nullable = false)
     private String surname;
 
-    //@JsonIgnore
+    @JsonIgnore
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
     private List<Song> songs;
 

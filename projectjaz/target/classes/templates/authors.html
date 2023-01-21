@@ -6,7 +6,7 @@
     <body>
     
         <div class="topnav">
-            <a  th:href="@{/authors/add}" >Add Author</a>
+            <a  th:href="@{/authors/add/}" >Add Author</a>
             <a class="active" th:href="@{/authors/all}">See Authors</a>
         </div>
 
@@ -30,6 +30,8 @@
                  <td th:text="${author.surname}">surname</td>
                  <td>
                     <a role="button" style="color:white; background-color: #263238" class="table-button" th:href="@{/authors/add/(id = ${author.id})}">Update</a>
+                  <a role="button" style="color:white; background-color: #263238" class="table-button" th:href="@{/authors/(id = ${author.id})}">Delete</a>
+
                 </td>
               </tr>
            </table>

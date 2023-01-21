@@ -3,42 +3,38 @@ package com.example.projectjaz.controller;
 import com.example.projectjaz.entity.Author;
 import com.example.projectjaz.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import java.util.List;
 
-import java.util.Optional;
-
-//@RestController
-@Controller
+@RestController
 @RequestMapping("/authors")
 public class AuthorController {
 
-    @Autowired
-    AuthorService authorService;
+        @Autowired
+        AuthorService authorService;
 
-    @GetMapping("/all")
-    public String getAuthors(Model model){
-        model.addAttribute("authors", authorService.getAuthors());
-        return "authors";
-    }
-
-    @GetMapping("/add")
-    public String getForm(Model model, @RequestParam(required = false) String id) { //RequestParam???
-        if(id == null){
-            model.addAttribute("author", new Author());
-        }else {
-            Author authorById = authorService.getAuthorById(Long.valueOf(id));
-            model.addAttribute("author", authorById);
+        @GetMapping("/all")
+        public ResponseEntity<List<Author>> getAuthors() {
+            return new ResponseEntity<>(authorService.getAuthors(), HttpStatus.OK);
         }
 
-        return "add_author";
+        @GetMapping("/{id}")
+        public ResponseEntity<Author> getAuthor(@PathVariable Long id) {
+            return new ResponseEntity<>(authorService.getAuthorById(id), HttpStatus.OK);
+        }
+
+        @PostMapping("/save")
+        public ResponseEntity<Author> saveAuthor(@RequestBody Author author) {//@Valid
+            return new ResponseEntity<>(authorService.saveAuthor(author), HttpStatus.CREATED);
+        }
+
+        @DeleteMapping("/{id}")
+        public ResponseEntity<HttpStatus> deleteAuthor(@PathVariable Long id) {
+            authorService.deleteById(id);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+
     }
 
-    @PostMapping("/submitAuthor")
-    public String handleSubmit(Author author){
-        authorService.saveAuthor(author);
-        return "redirect:/authors/all";
-    }
-
-}

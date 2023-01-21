@@ -21,9 +21,10 @@ public class AuthorServiceImpl implements AuthorService{
     }
 
     @Override
-    public void saveAuthor(Author author) {
-        authorRepository.save(author);
+    public Author saveAuthor(Author author) {
+        return authorRepository.save(author);
     }
+
 
     @Override
     public Author getAuthorById(Long id) {
@@ -35,5 +36,17 @@ public class AuthorServiceImpl implements AuthorService{
         }
     }
 
+    @Override
+    public void deleteById(Long id) {
+        authorRepository.deleteById(id);
+    }
 
+
+    public static Author takeAuthorIfPresent(Optional<Author> author) {
+        if (author.isPresent())
+            return author.get();
+            //else throw new GradeNotFoundException(studentId, courseId);
+        else
+            throw new RuntimeException();
+    }
 }
