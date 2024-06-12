@@ -177,6 +177,13 @@ int main(int argc, char* argv[]) {
 
         // Detekcja kolizji z platformami
         for (auto& platform : platforms) { // Iteruje przez wszystkie platformy w wektorze
+
+            if (velocityY > 0 && checkCollision(squareX, squareY+20, SQUARE_SIZE, platform)) {
+                if(!platform.isVisited) {
+                    platform.x += rand() % 25;
+                }
+            }
+
             if (velocityY > 0 && checkCollision(squareX, squareY, SQUARE_SIZE, platform)) { // w platform.cpp ta func
                 squareY = platform.y - SQUARE_SIZE;
                 velocityY = 0;
@@ -190,6 +197,7 @@ int main(int argc, char* argv[]) {
                 }
             }
         }
+
 
         // Sprawdź, czy gracz spadł poza ekran
         if (squareY + SQUARE_SIZE > SCREEN_HEIGHT + cameraY) {
